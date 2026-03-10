@@ -15,7 +15,7 @@ MonoBehaviour:
   tileType: 1
   displayName: Refiner
   description: 
-  icon: {fileID: 7482667652216324306, guid: c93d08451ce31e542a37ffd039121cec, type: 3}
+  icon: {fileID: -2769110120655345547, guid: 0879f83f9a4bd8e4d8fef25e308a40be, type: 3}
   baseValue: 0
   refinerMultiplier: 2
   shopCost: 25

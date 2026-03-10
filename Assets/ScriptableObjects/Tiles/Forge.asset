@@ -15,7 +15,7 @@ MonoBehaviour:
   tileType: 2
   displayName: Forge
   description: 
-  icon: {fileID: 7482667652216324306, guid: e1715ecfae886ee4690fc8452d7f556b, type: 3}
+  icon: {fileID: -1533486099638677133, guid: 1244318a342739340925805f05943b4c, type: 3}
   baseValue: 0
   refinerMultiplier: 0
   shopCost: 0
