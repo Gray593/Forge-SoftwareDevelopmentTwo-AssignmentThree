@@ -25,7 +25,7 @@ Medium Priority:
 Low Priority:
 * The player should be get audio feedback when performing actions in the game
 
-* The player should recieve notifications when a goal is completed
+* The player should receive notifications when a goal is completed
 ## 2.0 System Requirements
 
 Functional Requirements 
@@ -52,6 +52,42 @@ Non-Functional Requirements
 
 * The game will be responsive and any changes to the gameplay grid will be implemented before the next tick
 ## 3.0 Scrum Backlog 
+![backlog1](./ReportImages/ScrumBacklog1.png)
+![backlog2](./ReportImages/ScrumBacklog2.png)
+Above is the complete scrum backlog for this project. In this section, backlog tasks will be expanded upon and assigned a priority level
+
+### High Priority:
+#### Grid System 
+An eight by eight grid should be generated when the scene loads, each grid cell should be able to be accessed via its grid co-ordinates
+
+#### Tile Placement
+Tiles should be able to be dragged from the inventory onto the grid, the tile should snap into position if over an empty cell. If the cell is not empty, the tile should return to the inventory.
+
+#### Tile Repositioning 
+Already placed cells should be able to be dragged from one cell to another. If a tile is dragged off of the grid it is returned to the inventory.
+
+#### Mine Tile
+
+#### Refiner Tile
+
+#### Forge Tile
+
+#### Tick System
+
+#### Goal System 
+
+#### Tile Shop
+
+#### Tile Inventory 
+
+#### Return Tiles to Inventory
+
+#### Tile Unlock System
+
+#### Game Audio
+
+#### Notification System
+
 
 ## 4.0 Design Breakdown
 
