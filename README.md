@@ -46,6 +46,9 @@ Functional Requirements
 
 Non-Functional Requirements
 
+* The user will control the game through a computer mouse
+
+* 
 ## 3.0 Scrum Backlog 
 
 ## 4.0 Design Breakdown
