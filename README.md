@@ -16,7 +16,16 @@ High priority:
 * The player should be able to complete goals of incremental difficulty to progress through the game 
 
 Medium Priority:
-* The player should be able to 
+* The player should be able to adjust the position of tiles after they have been placed
+
+* The player should unlock new types of tiles as they progress through the game
+
+* The player should be able to drag tiles off of the grid, when this happens the tiles should return to the inventory
+
+Low Priority:
+* The player should be get audio feedback when performing actions in the game
+
+* The player should recieve notifications when a goal is completed
 ## 2.0 System Requirements
 
 ## 3.0 Scrum Backlog 
