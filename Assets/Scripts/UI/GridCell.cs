@@ -3,8 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-// Attached to each cell in the visual grid.
-// Acts as a drop target for tiles dragged from the shop/inventory.
+// This class is one singular grid cell, it is used in every cell within the game grid 
 
 public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
@@ -25,7 +24,7 @@ public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
         ClearTile();
     }
 
-    // Tile Display
+    // Set tile is responsible for setting a tile to the current grid cell and also enabling the drag handler
     public void SetTile(TileDefinition tile)
     {
         _currentTile = tile;
@@ -39,7 +38,7 @@ public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
 
         AudioManager.Instance?.PlaySnap();
     }
-
+    // clear tile is used to remove a tile from the cell
     public void ClearTile()
     {
         _currentTile = null;
@@ -48,7 +47,7 @@ public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
         if (backgroundImage) backgroundImage.color = emptyColor;
     }
 
-    //Drop Handler (receives tiles dragged from inventory or grid) 
+    // The OnDrop function is used to determine if a tile can be placed or not 
     public void OnDrop(PointerEventData eventData)
     {
         DragHandler drag = eventData.pointerDrag?.GetComponent<DragHandler>();
@@ -61,7 +60,7 @@ public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
             drag.OnPlaceFailed();
     }
 
-    //Right-click to return tile to inventory
+    // The OnPointerClick function removes tiles from the cell when they are right clicked upon
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
