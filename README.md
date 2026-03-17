@@ -104,6 +104,23 @@ When Goals are met a notification should be sent to the users informing them tha
 ## 4.0 Design Breakdown
 
 ## 5.0 Functional Breakdown
+### 5.1 TileDefinition.cs
+![displaysTileDefinition.cs](./ReportImages/TileDefinition.png)
+The Tile Definition script is a Unity Scriptable Object this acts as a template for all the different tile types utilised in Forge and could be expanded on in future to add more tile types. The script consists of two main sections the enumeration used to identify the type of tile and the class declaration that creates a range of variables that can be interacted with in the unity inspector. Both the unity documentation(Unity Technologies, 2024a) and gamedevbeginner(French, 2024a) tutorial helped greatly when developing this script.
+
+### 5.2 GameManager.cs
+
+### 5.3 GridManager.cs
+### 5.4 AudioManager.cs
+### 5.5 GridCell.cs
+### 5.6 DragHandler.cs
+### 5.7 InventorySlot.cs
+### 5.8 InventoryManager.cs
+### 5.9 ShopSlot.cs
+### 5.10 ShopManager.cs
+### 5.11 UIManager.cs
+### 5.12 NotificationManager.cs
+### 5.13 CreateTileSprites.cs
 
 ## 6.0 Project Management
  
