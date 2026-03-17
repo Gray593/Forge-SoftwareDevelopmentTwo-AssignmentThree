@@ -121,7 +121,9 @@ The Game Manager script acts as the control hub of the game. It manages the tick
 
 The Grid Manager script is the most complex script in the game it creates the grid both logically and visually. Manages tile placement and removal, as well as calculating the value of chains of tiles utilising a breadth first search. To create this search this geeks for geeks article was used (geeksforgeeks, 2023).
 ### 5.4 AudioManager.cs
+![displaysAudioManager.cs](./ReportImages/AudioManager.png)
 
+The Audio Manager class is used to create unity inspector fields for audio clips to be dragged into and also to facilitate the sound files being played when necessary by creating public functions to play the audio files. To create this class both the unity documentation (Unity Technologies, 2025a) and this gamedevbeginner (French, 2024c) article were used.
 ### 5.5 GridCell.cs
 ### 5.6 DragHandler.cs
 ### 5.7 InventorySlot.cs
