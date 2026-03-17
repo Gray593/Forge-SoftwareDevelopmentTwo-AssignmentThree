@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
+// This class manages the movement of tiles within the game
 [RequireComponent(typeof(Image))]
 public class DragHandler : MonoBehaviour,
     IBeginDragHandler, IDragHandler, IEndDragHandler
@@ -16,8 +16,9 @@ public class DragHandler : MonoBehaviour,
     private GameObject    _ghost;
     private bool          _placedSuccessfully = false; // prevents double return on success
 
-    //Init Methods
-    //Called by InventorySlot.Init()
+
+    //The following two Init functions are called by the inventory slot and grid cell respectively, depending
+    // on where the tile is being dragged from
     public void InitFromInventory(TileDefinition tile, InventorySlot owner)
     {
         TileDefinition  = tile;
@@ -26,7 +27,6 @@ public class DragHandler : MonoBehaviour,
         _canvas         = FindFirstObjectByType<Canvas>();
     }
 
-    //Called by GridCell when it becomes draggable
     public void InitFromGrid(TileDefinition tile, GridCell owner)
     {
         TileDefinition = tile;
@@ -35,28 +35,27 @@ public class DragHandler : MonoBehaviour,
         _canvas        = FindFirstObjectByType<Canvas>();
     }
 
-    //Drag Lifecycle
+    //This function is called when a piece starts being dragged
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Check we are allowed to drag
+        // Checks if the piece can be dragged
         if (_inventoryOwner != null && !_inventoryOwner.CanDrag)
         {
             eventData.pointerDrag = null;
             return;
         }
 
-        // Find canvas here in case it wasn't ready during Init
+        // Tries to find the canvas again if it couldnt be found initially
         if (_canvas == null) _canvas = FindFirstObjectByType<Canvas>();
         if (_canvas == null) { Debug.LogError("No Canvas found in scene"); return; }
 
-        // Create a ghost copy that follows the mouse
-        // The original stays in the inventory panel
+        // Creates a ghost copy the tile follows the mouse while the original stays in the inventory pane
         _ghost = new GameObject("DragGhost");
         _ghost.transform.SetParent(_canvas.transform, false);
 
         Image ghostImage         = _ghost.AddComponent<Image>();
         ghostImage.sprite        = _image.sprite;
-        ghostImage.raycastTarget = false; // so drops register on cells below
+        ghostImage.raycastTarget = false; // registers the tile dropping on the cell below
 
         RectTransform ghostRT  = _ghost.GetComponent<RectTransform>();
         ghostRT.sizeDelta      = GetComponent<RectTransform>().sizeDelta;
@@ -80,21 +79,21 @@ public class DragHandler : MonoBehaviour,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Ghost was not dropped on a valid cell — clean up
+        // Cleanup if statement that destroys the ghost image if its not placed in a valid position
         if (_ghost != null) { Destroy(_ghost); _ghost = null; }
 
-        // Only return to inventory if we picked up from grid AND never placed successfully
+        // returns the tile to the inventory if its not placed successfully
         if (_gridOwner != null && !_placedSuccessfully)
             InventoryManager.Instance?.ReturnTile(TileDefinition);
     }
 
-    //Placement Callbacks (called by GridCell.OnDrop)
+    // Placement callback function that destroys the ghost tile when tiles are placed successfully.
     public void OnPlacedSuccessfully()
     {
         _placedSuccessfully = true;
         if (_ghost != null) { Destroy(_ghost); _ghost = null; }
 
-        // Decrement inventory count only if dragged from inventory
+        // if the tile has been dragged from the inventory decrement the inventory count of that tile 
         if (_inventoryOwner != null)
             _inventoryOwner.OnTilePlaced();
 
@@ -105,7 +104,7 @@ public class DragHandler : MonoBehaviour,
     {
         if (_ghost != null) { Destroy(_ghost); _ghost = null; }
 
-        // If picked from grid and placement failed, return tile to inventory
+        // If a tile is picked up from the grid and placement failed, return the tile back to inventory
         if (_gridOwner != null)
             InventoryManager.Instance?.ReturnTile(TileDefinition);
 
