@@ -109,7 +109,10 @@ When Goals are met a notification should be sent to the users informing them tha
 The Tile Definition script is a Unity Scriptable Object this acts as a template for all the different tile types utilised in Forge and could be expanded on in future to add more tile types. The script consists of two main sections the enumeration used to identify the type of tile and the class declaration that creates a range of variables that can be interacted with in the unity inspector. Both the unity documentation(Unity Technologies, 2024a) and gamedevbeginner(French, 2024a) tutorial helped greatly when developing this script.
 
 ### 5.2 GameManager.cs
+![displaysGameManager.cs](./ReportImages/GameManager.png)
+![displaysGameManager.cs](./ReportImages/GameManager2.png)
 
+The Game Manager script acts as the control hub of the game. It manages the tick system, the goal system and the in game balance. As well as informing other scripts of changes to the balance and when the goal as been met. The game manager follows the Singleton design pattern this ensures that only one instance of the GameManager class exists at a time. The development of this class was greatly assisted by both a gamedevbeginner(French, 2024b) article and a Medium(Erol, 2022) article.
 ### 5.3 GridManager.cs
 ### 5.4 AudioManager.cs
 ### 5.5 GridCell.cs
