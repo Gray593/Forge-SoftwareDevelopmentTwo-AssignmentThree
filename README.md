@@ -153,11 +153,14 @@ The Shop Slot class manages an individual slot in the shop panel. It is used to 
 ### 5.10 ShopManager.cs
 ![ShopManager.cs](./ReportImages/ShopManager.png)
 
-The Shop Manager class is utilised to create a shop slot for every tile definition
+The Shop Manager class is utilised to create a shop slot for every tile definition.
 ### 5.11 UIManager.cs
 ![UIManager.cs](./ReportImages/UIManager.png)
+![UIManager2.cs](./ReportImages/UIManager2.png)
 
+The UI Manager class subscribes to the events from the Game Manager class and update the user interface accordingly. The advantage of this is rather than updating the UI every frame using an Update function the ui is only updated when the relevant variables change.
 ### 5.12 NotificationManager.cs
+
 ### 5.13 CreateTileSprites.cs
 
 ## 6.0 Project Management

@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-// Hooks into GameManager events and keeps the HUD in sync.
-// Assign references in the Inspector.
+// Updates the UI with information from the Game Manager class
 
 public class UIManager : MonoBehaviour
 {
