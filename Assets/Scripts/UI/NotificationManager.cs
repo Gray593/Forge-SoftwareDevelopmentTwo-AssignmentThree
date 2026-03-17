@@ -10,8 +10,8 @@ public class NotificationManager : MonoBehaviour
 {
     public static NotificationManager Instance { get; private set; }
 
-    [SerializeField] private GameObject toastPrefab;    // Panel + TMP_Text
-    [SerializeField] private Transform  toastParent;    // Canvas overlay transform
+    [SerializeField] private GameObject toastPrefab;    
+    [SerializeField] private Transform  toastParent;    
     [SerializeField] private float      displayTime = 2.5f;
     [SerializeField] private float      fadeTime    = 0.4f;
 
@@ -24,7 +24,7 @@ public class NotificationManager : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
-
+    // Queues up notification message
     public void ShowNotification(string message)
     {
         _queue.Enqueue(message);
@@ -43,7 +43,7 @@ public class NotificationManager : MonoBehaviour
 
         _showing = false;
     }
-
+    // Displays the notification    
     private IEnumerator ShowToast(string message)
     {
         GameObject toast = Instantiate(toastPrefab, toastParent);
@@ -53,13 +53,9 @@ public class NotificationManager : MonoBehaviour
         CanvasGroup cg = toast.GetComponent<CanvasGroup>();
         if (cg == null) cg = toast.AddComponent<CanvasGroup>();
 
-        // Fade in
+        // Fades the message in and out
         yield return FadeCanvasGroup(cg, 0f, 1f, fadeTime);
-
-        // Hold
         yield return new WaitForSeconds(displayTime);
-
-        // Fade out
         yield return FadeCanvasGroup(cg, 1f, 0f, fadeTime);
 
         Destroy(toast);

@@ -160,8 +160,10 @@ The Shop Manager class is utilised to create a shop slot for every tile definiti
 
 The UI Manager class subscribes to the events from the Game Manager class and update the user interface accordingly. The advantage of this is rather than updating the UI every frame using an Update function the ui is only updated when the relevant variables change.
 ### 5.12 NotificationManager.cs
+![NotificationManager.cs](./ReportImages/NotificationManager.png)
+![NotificationManager2.cs](./ReportImages/NotificationManager2.png)
 
-### 5.13 CreateTileSprites.cs
+The Notification Manager Class queues up and displays toast notifications before destroying them, this was accomplished using coroutines. When developing this class both the Unity documentation on coroutines (Unity Technologies, 2024c) and the unity learn tutorial were particularly helpful (Unity Learn, 2026).
 
 ## 6.0 Project Management
  
