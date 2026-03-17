@@ -128,8 +128,13 @@ The Audio Manager class is used to create unity inspector fields for audio clips
 ![GridCell.cs](./ReportImages/GridCell.png)
 ![GridCell2.cs](./ReportImages/GridCell2.png)
 
-The Grid Cell function is attached to every cell in the eight by eight game grid and is used to manage tile placement and removal as well as interfacing with the DragHandler script to allow tiles to be moved by the player. To help implement the placement feature a Medium article about drag and drop inventories was used (Duggan, 2024).
+The Grid Cell class is attached to every cell in the eight by eight game grid and is used to manage tile placement and removal as well as interfacing with the DragHandler script to allow tiles to be moved by the player. To help implement the placement feature a Medium article about drag and drop inventories was used (Duggan, 2024).
 ### 5.6 DragHandler.cs
+![DragHandler.cs](./ReportImages/DragHandler.png)
+![DragHandler2.cs](./ReportImages/DragHandler2.png)
+![DragHandler3.cs](./ReportImages/DragHandler3.png)
+
+The Drag Handler class allows for the user to drag tiles from the inventory to the game board and allows for tile to be dragged from one cell on the board to another. It does this by creating a ghost copy of the tile and then deleting the copy when the tile is placed 
 ### 5.7 InventorySlot.cs
 ### 5.8 InventoryManager.cs
 ### 5.9 ShopSlot.cs
