@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Forge-SoftwareDevelopment2-Assignment2.slnx"
+    "dotnet.defaultSolution": "Forge-SoftwareDevelopmentTwo-AssignmentThree.slnx"
 }

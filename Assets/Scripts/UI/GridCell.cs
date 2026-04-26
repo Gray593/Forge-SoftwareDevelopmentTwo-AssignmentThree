@@ -65,8 +65,16 @@ public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (_currentTile != null && GridManager.Instance.TryRemoveTile(GridX, GridY))
-                InventoryManager.Instance?.ReturnTile(_currentTile);
+            if (_currentTile != null)
+            {
+                TileDefinition tileToSell = _currentTile; // store reference first
+                if (GridManager.Instance.TryRemoveTile(GridX, GridY))
+                {
+                    GameManager.Instance.AddBalance(tileToSell.shopCost * 0.5f);
+                    AudioManager.Instance?.PlaySnap();
+                }
+            }
         }
     }
 }
+
