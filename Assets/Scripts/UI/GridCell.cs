@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-// This class is one singular grid cell, it is used in every cell within the game grid 
+//This class is one singular grid cell, it is used in every cell within the game grid 
 
 public class GridCell : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
