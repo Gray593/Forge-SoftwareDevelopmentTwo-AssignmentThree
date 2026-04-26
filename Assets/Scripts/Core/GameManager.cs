@@ -85,4 +85,25 @@ public class GameManager : MonoBehaviour
         }
     }
     public float TickInterval => tickInterval;
+    // new code for assignment three
+    // the below code is used to upgrade the tick count
+    [Header("Tick Upgrade Settings")]
+    private int _tickUpgradeCount = 0;
+    private readonly int _maxTickUpgrades = 3;
+    public static readonly float[] TickUpgradeCosts = { 100f, 300f, 750f };
+
+    public event Action<float, bool> OnTickUpgradeChanged; // nextCost, canUpgrade
+
+    public bool PurchaseTickUpgrade()
+    {
+        if (_tickUpgradeCount >= _maxTickUpgrades) return false;
+        float cost = TickUpgradeCosts[_tickUpgradeCount];
+        if (!SpendBalance(cost)) return false;
+        tickInterval = Mathf.Max(0.75f, tickInterval - 0.4f);
+        _tickUpgradeCount++;
+        bool canUpgradeAgain = _tickUpgradeCount < _maxTickUpgrades;
+        float nextCost = canUpgradeAgain ? TickUpgradeCosts[_tickUpgradeCount] : 0f;
+        OnTickUpgradeChanged?.Invoke(nextCost, canUpgradeAgain);
+        return true;
+    }
 }
