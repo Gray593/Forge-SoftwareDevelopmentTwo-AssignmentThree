@@ -36,7 +36,7 @@ Tests:
 ### Stats Panel
 A panel displaying active chains, balance earned last tick, best chain value and total tiles placed. Updates every tick.
 
-Definition of Done:
+Success Criteria:
 * Panel visible during gameplay
 * All four statistics display correct values
 * Values update after every tick
@@ -48,6 +48,19 @@ Tests:
 * T11: Place three tiles and verify Tiles Placed displays 3
 
 ## Design of new features
+### Design of Sell Feature
+Below are both the visual design and flowchart of the sell functionality. Before the sell system was implemented the player could remove tiles from the grid and return to the inventory. This worked well but allowed the player to be very unintentional with tile placement. Now the user cannot return tiles to the inventory they can only move them on the game board or sell them. This change aims to increase the difficulty of the game.
+![sellFlow](./ReportImages/sellFlow.png)
+![sellDes](./ReportImages/sellDes.png)
+### Design of Tick Speed Upgrade
+Below are both the visual design and flowchart of the tick upgrade system. The objective of the tick upgrade system is to allow the user to speed up the gameplay loop while adding another avenue for progression. 
+![tickFlow](./ReportImages/tickFlow.png)
+![tickDes](./ReportImages/tickDes.png)
+### Design of the Stats Panel
+The stats panel allows the user to view information about the current game state. It adds a layer of transparency, that allows the player to better understand how their current tile setup is performing. While the stats pane itself doesn't add anything to the gameplay loop, its addition should make the game easier for new players and give experienced players a satisfying level of clarity. Below are the flow diagram and visual design of this feature. 
+![statFlow](./ReportImages/statFlow.png)
+![statDes](./ReportImages/statDes.png)
+
 
 ## Implementation of new features
 
