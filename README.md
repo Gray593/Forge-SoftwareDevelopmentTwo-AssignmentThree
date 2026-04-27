@@ -47,5 +47,9 @@ Tests:
 * T10: Place two chains of different values and verify Best Chain shows the higher value
 * T11: Place three tiles and verify Tiles Placed displays 3
 
-## 
+## Design of new features
+
+## Implementation of new features
+
+
 ![backlog1](./ReportImages/ScrumBacklog1.png)
