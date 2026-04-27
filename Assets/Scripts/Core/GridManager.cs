@@ -86,19 +86,37 @@ public class GridManager : MonoBehaviour
         x >= 0 && x < columns && y >= 0 && y < rows;
 
     // scans all cells in the grid for mines, then evaluates each chain before returning the balance total for the in game tick 
-    public float EvaluateAllChains()
+    public GameManager.TickStats EvaluateAllChains()
     {
         float total = 0f;
-        HashSet<Vector2Int> usedForges = new HashSet<Vector2Int>(); // one mine per forge per tick
+        int chains = 0;
+        float bestChain = 0f;
+        int tilesPlaced = 0;
+        HashSet<Vector2Int> usedForges = new HashSet<Vector2Int>();
 
         for (int x = 0; x < columns; x++)
-        for (int y = 0; y < rows;    y++)
+        for (int y = 0; y < rows; y++)
         {
+            if (_grid[x, y] != null) tilesPlaced++;
             if (_grid[x, y]?.tileType == TileType.Mine)
-                total += EvaluateMine(x, y, usedForges);
+            {
+                float chainVal = EvaluateMine(x, y, usedForges);
+                if (chainVal > 0f)
+                {
+                    chains++;
+                    total += chainVal;
+                    if (chainVal > bestChain) bestChain = chainVal;
+                }
+            }
         }
 
-        return total;
+        return new GameManager.TickStats
+        {
+            balanceThisTick = total,
+            chainsEvaluated = chains,
+            bestChainValue  = bestChain,
+            tilesOnGrid     = tilesPlaced
+        };
     }
 
     // This function utilises a breadth first search to calculate the total for each chain by starting at a mine, taking the base value

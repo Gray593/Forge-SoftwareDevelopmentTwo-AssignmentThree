@@ -49,9 +49,10 @@ public class GameManager : MonoBehaviour
     // is called by the previous function to evaluate all tile chains and then update the balance
     private void DoTick()
     {
-        float earned = GridManager.Instance.EvaluateAllChains();
-        if (earned > 0f)
-            AddBalance(earned);
+        TickStats stats = GridManager.Instance.EvaluateAllChains();
+        if (stats.balanceThisTick > 0f)
+            AddBalance(stats.balanceThisTick);
+        OnTickComplete?.Invoke(stats);
     }
 
     // increases the balance, notifies the subscribed scripts and then checks the goal
@@ -106,4 +107,14 @@ public class GameManager : MonoBehaviour
         OnTickUpgradeChanged?.Invoke(nextCost, canUpgradeAgain);
         return true;
     }
+    //code for assignment 3 stats page
+    public struct TickStats
+    {
+        public int chainsEvaluated;
+        public float balanceThisTick;
+        public float bestChainValue;
+        public int tilesOnGrid;
+    }
+
+    public event Action<TickStats> OnTickComplete;
 }
