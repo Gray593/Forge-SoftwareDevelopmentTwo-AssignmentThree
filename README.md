@@ -77,4 +77,29 @@ The second Image is of the tick upgrade button script. It is a relatively simple
 The above code snippet displays the tick stats struct this contains the variables that store the values that are displayed by the ui panel.
 ![statImp2](./ReportImages/statsImp2.png)
 This code snippet shows the StatsManager script. The StatsManager script contains the text mesh ui elements and manages updating the on screen text elements to match the variables.
-![backlog1](./ReportImages/ScrumBacklog1.png)
+
+## Project Management
+### Burndown Chart
+![sellImp](./ReportImages/burndownChart.png)
+Above is the burndown chart for sprint two, while only brief it shows the progression of the three additional tasks from this sprint. To view the full projects timeline please refer to both this burndown chart and the one from the previous assignment.
+### Meeting Logs
+![sellImp](./ReportImages/meetingLogs.png)
+![sellImp](./ReportImages/meetingLogs2.png)
+Here are the meeting logs from this sprint, overall the project went smoothly but fell a little behind schedule.
+### Backlog Review
+Throughout the course of the project backlog reviews were conducted regularly this can be observed throughout the meeting logs of both projects and in the image below which shows the progression of the backlog throughout the duration of the project.
+![backlog](./ReportImages/backlog.png)
+
+## New Techniques and Tools Utilised
+### Structs
+The TickStats struct was utilised in the implementation of the stat panel. It is used to pass values between the grid manager and the game manager in a single object. While in its current scope it would have been fine to pass the variables individually, containing them in a struct ensures the code is clean and scalable. If in future more statistics were to be added to the stats panel the utilising the tickStats struct would greatly streamline the implementation process.
+
+### Layout Element
+A layout element was utilised to override the sizing forced onto the tickUpgradeButton by the layout group. The Layout Element specifies a preferred width and height to counteract the previous formatting. 
+
+### Event Driven Architecture
+An event driven architecture was already utilised in sprint one but was extended in sprint two with two new events being created. OnTickComplete is utilised to pass the TickStats struct to StatsManager every tick. OnTickUpgradeChanged notifies TickUpgradeButton when ever an upgrade is purchased. Both follow the generic observer pattern that was already utilised in sprint one.
+
+## Testing
+Below is the full testing table of both sprints of the project. As can be observed all tests have been passed.
+![testing](./ReportImages/testingTable.png)
