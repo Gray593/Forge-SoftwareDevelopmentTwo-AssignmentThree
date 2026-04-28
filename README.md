@@ -68,5 +68,13 @@ The implementation of the sell feature was relatively simple as a lot of the inf
 ![sellImp](./ReportImages/sellImp.png)
 As can be seen in the above image this is the adjusted function. It now stores a reference to the tile before deleting it and adding to the balance.
 ### Implementation of Tick Speed Upgrade Feature
+![tickImp](./ReportImages/tickImp1.png)
+The above purchase tick upgrade function is called when the upgrade button is pressed it ensures that the player can afford the upgrade and the upgrade is not already maxed out. if both the conditions are met then the tick interval is reduced and the upgrade count is incremented.
+![tickImp](./ReportImages/tickImp2.png)
+The second Image is of the tick upgrade button script. It is a relatively simple script that manages the tick upgrade button, the script subscribes to both the  OnTickUpgradeChanged and OnBalanceChanged events and uses both of them to manage the in button text.
 ### Implementation of Stats Panel Feature
+![statImp](./ReportImages/statsImp.png)
+The above code snippet displays the tick stats struct this contains the variables that store the values that are displayed by the ui panel.
+![statImp2](./ReportImages/statsImp2.png)
+This code snippet shows the StatsManager script. The StatsManager script contains the text mesh ui elements and manages updating the on screen text elements to match the variables.
 ![backlog1](./ReportImages/ScrumBacklog1.png)
