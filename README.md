@@ -63,6 +63,10 @@ The stats panel allows the user to view information about the current game state
 
 
 ## Implementation of new features
-
-
+### Implementation of Sell Feature
+The implementation of the sell feature was relatively simple as a lot of the infrastructure was already in place from the previous return to inventory system. 
+![sellImp](./ReportImages/sellImp.png)
+As can be seen in the above image this is the adjusted function. It now stores a reference to the tile before deleting it and adding to the balance.
+### Implementation of Tick Speed Upgrade Feature
+### Implementation of Stats Panel Feature
 ![backlog1](./ReportImages/ScrumBacklog1.png)
